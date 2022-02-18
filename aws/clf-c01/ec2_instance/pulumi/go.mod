@@ -1,4 +1,4 @@
-module lambda
+module ec2_instance
 
 go 1.17
 
