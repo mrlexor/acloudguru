@@ -1,3 +1,4 @@
+---
 name: ec2_instance
 runtime: go
 description: ACloudGuru lab

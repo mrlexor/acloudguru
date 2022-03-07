@@ -1,3 +1,4 @@
+---
 AWSTemplateFormatVersion: 2010-09-09
 Description: CloudFormation Template To Create Alfredo's Inventory DynamoDB Table
 
@@ -7,18 +8,16 @@ Resources:
     Properties:
       TableName: Inventory
       AttributeDefinitions:
-        - 
-          AttributeName: !Ref HashKeyElementName
+        - AttributeName: !Ref HashKeyElementName
           AttributeType: !Ref HashKeyElementType
       KeySchema:
-        - 
-          AttributeName: !Ref HashKeyElementName
+        - AttributeName: !Ref HashKeyElementName
           KeyType: HASH
-          
+
       ProvisionedThroughput:
         ReadCapacityUnits: 5
-        WriteCapacityUnits: 5 
-        
+        WriteCapacityUnits: 5
+
 Parameters:
   HashKeyElementName:
     Type: String
