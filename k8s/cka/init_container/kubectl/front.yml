@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: front
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.19.1
+  initContainers:
+    - name: back-svc-check
+      image: busybox:1.27
+      command:
+        - 'sh'
+        - '-c'
+        - 'until nslookup back-svc; do echo waiting for back-svc; sleep 2; done'

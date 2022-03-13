@@ -1,7 +1,7 @@
 resource "kubernetes_role" "main" {
   metadata {
     name      = "pod-reader"
-    namespace = "beebox-mobile"
+    namespace = "default"
   }
   rule {
     api_groups = [""]

@@ -1,7 +1,7 @@
 resource "kubernetes_role_binding" "main" {
   metadata {
     name      = "pod-reader"
-    namespace = "beebox-mobile"
+    namespace = "default"
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
