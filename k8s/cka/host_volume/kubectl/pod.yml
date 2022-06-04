@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: maintenance-pod
+spec:
+    containers:
+    - name: busybox1
+      image: busybox
+      command: ['sh', '-c', 'while true; do echo Success! >> /output/output.txt; sleep 5; done']
+      resources: {}
+      volumeMounts:
+        - mountPath: /output
+          name: shared-vol
+    - name: busybox2
+      image: busybox
+      command: ['sh', '-c', 'while true; do cat /input/output.txt; sleep 5; done']
+      resources: {}
+      volumeMounts:
+        - mountPath: /input
+          name: shared-vol
+    volumes:
+      - name: shared-vol
+        emptyDir: {}
